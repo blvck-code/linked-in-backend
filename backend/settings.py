@@ -25,7 +25,7 @@ SECRET_KEY = '6#f^3num-=!c-i0k@z*@6=6dakg&a64-4(%btv0-+ahv*n+o^g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['devsworld-backend.herokuapp.com', "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ['oluoch-linkedin.herokuapp.com', "127.0.0.1", "localhost"]
 
 
 # Application definition
