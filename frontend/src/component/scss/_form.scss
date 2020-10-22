@@ -1,0 +1,474 @@
+ //Login
+ .sign-in {
+     display: flex;
+     flex-direction: row;
+     background: rgb(29, 29, 29);
+     color: $mainLight;
+     height: 100vh;
+     overflow: hidden;
+
+     .left {
+         flex: 1;
+         @include flex;
+         padding-bottom: 1rem;
+
+         .logo {
+             margin-bottom: 8vh;
+             width: 500px;
+
+             h1 {
+                 font-size: 3rem;
+             }
+         }
+
+         .form {
+             width: 80%;
+             padding-bottom: 3rem;
+
+             input[type='email'],
+             input[type='password'] {
+                 width: 100%;
+                 margin-bottom: 1.3rem;
+                 border: 1px solid #555;
+                 padding: 0.5rem 1.3rem;
+                 background: $darkBg;
+                 color: $mainGrey;
+                 font-size: 1rem;
+                 border-radius: 5px;
+                 line-height: 1.3rem;
+                 outline: none;
+                 @include easeOut;
+
+
+                 &:focus {
+                     border: 1px solid $mainOrange;
+                     width: 95%;
+                     box-shadow: 5px 5px 2px rgba($color: #000000, $alpha: 0.7);
+                 }
+
+             }
+
+         }
+
+         .links,
+         .or,
+         .btn-secondary {
+             width: 60%;
+         }
+
+         .links a {
+             display: block;
+             color: $mainLight;
+             margin-bottom: 1rem;
+             font-size: 0.9rem;
+
+             &:hover {
+                 color: $mainOrange;
+             }
+         }
+
+         .or {
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             margin-bottom: 1.2rem;
+
+             .bar {
+                 height: 1px;
+                 flex: auto;
+                 background: #aaa;
+             }
+
+             span {
+                 padding: 0 0.8rem;
+             }
+         }
+
+         .btn-secondary {
+             margin-bottom: 3rem;
+         }
+
+         footer {
+             font-size: 0.8rem;
+             max-width: 80%;
+             margin-top: 3rem;
+
+             a {
+                 color: $mainOrange;
+                 padding-bottom: 0.4rem;
+
+                 &:hover {
+                     border-bottom: 1px solid $mainOrange;
+                 }
+             }
+         }
+
+     }
+
+     .right {
+         flex: 1;
+         @include flex;
+         background: url(../img/showcase.jpg) no-repeat center center/cover;
+         align-items: center;
+         position: relative;
+
+         .overlay {
+             @include overlay;
+         }
+
+         .showcase-content {
+             z-index: 2;
+             @include flex;
+             height: 100%;
+
+             .showcase-text {
+                 width: 100%;
+                 font-size: 3rem;
+                 font-style: italic;
+                 margin: 0.5rem;
+
+                 strong {
+                     color: $mainOrange;
+                     font-style: normal;
+                     font-weight: 800 !important;
+                 }
+
+                 .btn-secondary {
+                     width: 60%;
+                 }
+             }
+         }
+
+     }
+ }
+
+ // Register
+ .sign-up {
+     display: flex;
+     background: rgb(29, 29, 29);
+     color: $mainLight;
+     height: 100vh;
+     background: url(../img/showcase.jpg) no-repeat center center/cover;
+     overflow: hidden;
+
+     &::after {
+         @include overlay;
+     }
+
+     .wrapper {
+         position: relative;
+
+         max-width: 700px;
+         width: 95%;
+         margin: 0 auto;
+         @include flex;
+         padding-bottom: 1rem;
+         z-index: 2;
+
+         .logo {
+             margin: 3vh 0;
+             width: 500px;
+
+             h1 {
+                 font-size: 3rem;
+             }
+         }
+
+         .form {
+             width: 80%;
+             padding-bottom: 2rem;
+
+             .disabled {
+                 background: lighten($color: $mainOrange, $amount: 10%);
+                 cursor: none;
+                 border: 1px solid $mainLight;
+             }
+
+             .group-input {
+                 display: flex;
+                 flex-direction: row;
+                 grid-gap: 1rem;
+
+                 .firstname,
+                 .lastname {
+                     flex: 1;
+                     display: flex;
+                     align-items: baseline;
+
+                     .fa {
+                         margin: 5px;
+                     }
+                 }
+
+                 @media screen and(max-width:768px) {
+                     flex-direction: column;
+                     grid-gap: 0rem;
+                 }
+             }
+
+             .form-group {
+                 display: flex;
+                 align-items: baseline;
+                 width: 100%;
+                 margin-bottom: 1rem;
+                 border: 1px solid #555;
+                 padding: 0rem;
+                 background: $darkBg;
+                 height: auto;
+                 border-radius: 5px;
+                 line-height: 1.3rem;
+                 outline: none;
+                 @include easeOut;
+
+                 .fa {
+                     margin-top: 5px;
+                     flex: 1;
+                     color: $mainBlue;
+                     font-size: 1.1rem;
+                 }
+
+                 //  .fa-check {
+                 //      display: none;
+                 //  }
+
+
+                 input[type='text'],
+                 input[type='email'],
+                 input[type='password'] {
+                     flex: 8;
+                     width: 100%;
+                     background: none;
+                     height: 100%;
+                     border: none;
+                     font-size: 1rem;
+                     padding: 0.5rem 0;
+                     color: $mainGrey;
+                     outline: none;
+                     height: 100%;
+
+                 }
+
+
+
+             }
+
+             .invalid {
+                 border: 0.5px solid lighten($color: red, $amount:5%);
+                 //  box-shadow: 2px 2px 1px lighten($color: red, $amount:15%);
+
+             }
+
+             .valid {
+                 border: 0.5px solid lighten($color: $mainBlue, $amount:5%);
+                 //  box-shadow: 1px 1px 1px lighten($color: $mainBlue, $amount:15%);
+             }
+
+             //  input[type='email'],
+             //  input[type='text'],
+             //  input[type='password'] {
+             //      width: 100%;
+             //      margin-bottom: 1rem;
+             //      border: 1px solid #555;
+             //      padding: 0.5rem 1.3rem;
+             //      background: $darkBg;
+             //      color: $mainGrey;
+             //      font-size: 1rem;
+             //      border-radius: 5px;
+             //      line-height: 1.3rem;
+             //      outline: none;
+             //      @include easeOut;
+
+             //      &:focus {
+             //          border: 1px solid $mainOrange;
+             //          width: 95%;
+             //          box-shadow: 5px 5px 2px rgba($color: #000000, $alpha: 0.7);
+
+             //      }
+             //  }
+         }
+
+         .links,
+         .or,
+         .btn-secondary {
+             width: 60%;
+         }
+
+         .links a {
+             display: block;
+             color: $mainLight;
+             margin-bottom: 1rem;
+             font-size: 0.9rem;
+             @include easeOut;
+
+
+             &:hover {
+                 color: $mainOrange;
+             }
+         }
+
+         .or {
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             margin-bottom: 1.2rem;
+
+             .bar {
+                 height: 1px;
+                 flex: auto;
+                 background: #aaa;
+             }
+
+             span {
+                 padding: 0 0.8rem;
+             }
+         }
+
+         footer {
+             font-size: 0.8rem;
+             max-width: 80%;
+             padding-top: 3rem;
+
+             a {
+                 color: $mainOrange;
+                 padding-bottom: 0.2rem;
+                 @include easeOut;
+
+
+                 &:hover {
+                     border-bottom: 1px solid $mainOrange;
+                 }
+             }
+         }
+     }
+
+ }
+
+ // Reset Password
+ .reset-pass {
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     text-align: center;
+     overflow: hidden;
+     position: relative;
+     color: $mainLight;
+     margin: 0 auto;
+     background: url(../img/showcase.jpg) no-repeat center center/cover;
+
+     &::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         right: 0;
+         height: 100%;
+         width: 100%;
+         background: rgba($color: #000000, $alpha: 0.6);
+         z-index: 1;
+     }
+
+     .wrapper {
+         height: 100%;
+         z-index: 2;
+         display: flex;
+         flex-direction: column;
+         justify-content: start;
+         align-items: center;
+         text-align: center;
+         overflow: hidden;
+
+         .logo {
+             margin: 8rem 0 2rem;
+             width: 500px;
+
+             h1 {
+                 font-size: 3rem;
+             }
+         }
+
+         .title {
+             margin-bottom: 2rem;
+         }
+
+         .form {
+             width: 80%;
+             padding-bottom: 2rem;
+
+             input[type='email'] {
+                 width: 100%;
+                 margin-bottom: 1rem;
+                 border: 1px solid #555;
+                 padding: 0.5rem 1.3rem;
+                 background: $darkBg;
+                 color: $mainGrey;
+                 font-size: 1rem;
+                 border-radius: 5px;
+                 line-height: 1.3rem;
+                 outline: none;
+                 @include easeOut;
+
+                 &:focus {
+                     border: 1px solid $mainOrange;
+                     width: 95%;
+                     box-shadow: 5px 5px 2px rgba($color: #000000, $alpha: 0.7);
+                 }
+
+             }
+
+             .btn-primary {
+                 width: 60%;
+             }
+
+         }
+
+
+         .or {
+             width: 60%;
+             display: flex;
+             flex-direction: row;
+             justify-content: center;
+             align-items: center;
+             margin-bottom: 0.8rem;
+
+             .link {
+                 flex: auto;
+             }
+
+             .bar {
+                 height: 1px;
+                 flex: auto;
+                 background: #aaa;
+             }
+
+             span {
+                 padding: 0 0.8rem;
+             }
+
+         }
+
+
+     }
+
+     footer {
+         font-size: 0.8rem;
+         max-width: 80%;
+         margin-bottom: 2rem;
+         z-index: 2;
+
+
+         a {
+             color: $mainOrange;
+             padding-bottom: 0.2rem;
+             @include easeOut;
+
+
+             &:hover {
+                 border-bottom: 1px solid $mainOrange;
+             }
+         }
+     }
+
+ }

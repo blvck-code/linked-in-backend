@@ -1,0 +1,1172 @@
+// Buttons
+.btn {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.5s ease-in;
+  color: $mainLight;
+
+  &-dark {
+    background: transparent;
+    border: 2px solid $mainGrey;
+    color: $mainGrey;
+  }
+
+  &-modal {
+    color: $mainLight;
+    background: $mainBlue;
+    font-weight: 400;
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font: inherit;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background: darken($color: $mainBlue, $amount: 5);
+    }
+  }
+
+  &-primary {
+    border-radius: 5px;
+    background: $mainOrange;
+    width: 100%;
+    border: 1px solid $mainOrange;
+
+    &:hover {
+      background: $mainOrange;
+      border: 1px solid $mainOrange;
+      background: transparent;
+      width: 95%;
+      box-shadow: 5px 5px 2px rgba($color: #000000, $alpha: 0.7);
+    }
+  }
+
+  &-secondary {
+    border: 1px solid $mainOrange;
+    border-radius: 5px;
+    background: transparent;
+
+    &:hover {
+      background: $mainOrange;
+      border: 1px solid $mainLight;
+    }
+  }
+}
+
+.main {
+  max-width: 1100px;
+  // margin: 6rem auto;
+  display: grid;
+  grid-template-columns: 25% 40% 35%;
+  grid-gap: 0.7rem;
+  margin: 5rem auto;
+  position: relative;
+
+  .profile {
+    position: relative;
+    border-radius: 5px;
+
+    // @media screen and (max-width: 768px) {
+    //   display: none;
+    // }
+
+    .card {
+      position: relative;
+      border-radius: 5px;
+      padding: 0;
+
+      .home-profile {
+        position: sticky;
+        top: 100px;
+
+        .bg_img {
+          height: 135px;
+          width: 100%;
+          border-radius: 5px;
+
+          img {
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            height: 100%;
+          }
+        }
+
+        .profile_img {
+          height: 150px;
+          width: 150px;
+          border-radius: 50%;
+          margin: -50px auto;
+          margin-bottom: 0.1rem;
+
+          img {
+            width: 90%;
+            height: 80%;
+            border-radius: 50%;
+            border: 2px solid $mainLight;
+            box-shadow: 2px 2px 5px $mainGrey;
+          }
+        }
+
+        .username {
+          @include flex;
+          font-size: 1.3rem;
+
+          h4 {
+            color: $mainDark;
+            line-height: 1;
+          }
+        }
+
+        .headline {
+          padding: 0.3rem 1rem;
+          line-height: 1.2;
+
+          p {
+            font-size: 0.9rem;
+            text-align: center;
+            color: $mainGrey;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .posts {
+    .createPostModal {
+      display: none;
+      border-radius: 4px;
+      margin-top: 60px;
+      position: fixed;
+      z-index: 3;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.7);
+
+      .modal-content {
+        background: $mainLight;
+        margin: 0 auto;
+        padding: 20px;
+        width: 40%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),
+          0 7px 20px 0 rgba(0, 0, 0, 0.17);
+        width: 38%;
+        border-radius: 5px;
+        outline: none;
+
+        .wrapper {
+          width: 100%;
+          height: 100%;
+          padding: 2rem;
+
+          .add-title {
+            color: $mainGrey;
+            padding: 0.5rem 1rem;
+            border-bottom: 2px solid $mainGrey;
+            display: flex;
+            justify-content: space-between;
+
+            .closeBtn {
+              cursor: pointer;
+              @include easeOut;
+
+              &:hover {
+                color: $mainOrange;
+              }
+            }
+          }
+
+          .user {
+            display: flex;
+            flex-direction: row;
+            margin-top: 1.2rem;
+            margin-bottom: 1.9rem;
+
+            &-dp {
+              flex: 2;
+              height: 70px;
+              width: 70px;
+              border: 0;
+              border-radius: 50%;
+              background: $mainGrey;
+              margin: 0 0.9rem 0 0;
+            }
+
+            &-info {
+              flex: 6;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              h4 {
+                color: $mainDark;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+              }
+
+              p {
+                color: $mainGrey;
+                font-size: 0.9rem;
+              }
+            }
+          }
+
+          form {
+            textarea {
+              background: none;
+              border: none;
+              outline: none;
+              width: 100%;
+              height: 150px;
+              font-size: 1rem;
+              color: $mainGrey;
+              font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+              &:focus {
+                border: none;
+                outline: none;
+              }
+            }
+
+            small {
+              color: $mainGrey;
+              font-size: 0.8rem;
+              margin: 1rem 0;
+
+              span {
+                color: rgb(36, 187, 238);
+                font-weight: 700;
+                margin-right: 1rem;
+                font-size: 1rem;
+              }
+            }
+
+            input[type="file"] {
+              font-size: 1rem;
+              color: $mainGrey;
+              border: none;
+              background: none;
+            }
+
+            .footer {
+              display: flex;
+              justify-content: space-between;
+
+              button {
+                padding: 0.4rem;
+                background: none;
+                border: none;
+                outline: none;
+
+                .fa {
+                  font-size: 1.5rem;
+                  cursor: pointer;
+
+                  &:active {
+                    color: $mainOrange;
+                  }
+                }
+              }
+
+              input[type="submit"] {
+                color: $mainLight;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                border: none;
+                outline: none;
+                background: rgb(36, 187, 238);
+                border-radius: 5px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .card {
+      margin-bottom: 0.8rem;
+
+      .title {
+        display: flex;
+        justify-content: baseline;
+        margin: 0.5rem auto;
+        width: 100%;
+        max-width: 550px;
+
+        .author-dp {
+          flex: 2;
+          height: 80px;
+          max-width: 80px;
+          // width: 40px;
+          border-radius: 50%;
+          margin: 0 1.2rem 0rem 0.5rem;
+          background: transparent;
+          @include flex;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px $mainGrey;
+            border: $mainGrey 2px solid;
+
+          }
+
+          @media screen and(max-width: 768px) {
+            width: 80%;
+            height: 70%;
+          }
+        }
+
+        .author {
+          &-info {
+            flex: 8;
+            display: flex;
+            justify-content: space-between;
+            // align-items: flex-start;
+            // align-items: center;
+            margin-top: 10px;
+
+            .post- {
+              &:menu {
+                position: relative;
+                cursor: pointer;
+
+                .fa {
+                  font-size: 1.2rem;
+                  margin-right: 1rem;
+                }
+              }
+            }
+          }
+
+          div {
+            flex: 8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          &-username {
+            font-size: 1.1rem;
+            text-transform: capitalize;
+            margin-bottom: 0.2rem;
+            line-height: 1;
+          }
+
+          &-proffesion {
+            font-size: 1rem;
+            color: $mainGrey;
+            line-height: 0.7;
+          }
+        }
+
+        .date-posted {
+          color: $mainGrey;
+          margin-top: 0;
+        }
+      }
+
+      .post {
+        &-body {
+          font-size: 1rem;
+          line-height: 1.2;
+          color: $mainGrey;
+          text-align: start;
+          width: 100%;
+          margin: 0.7rem auto;
+
+          @media screen and(max-width:1150px) {
+            max-width: 500px;
+
+          }
+
+        }
+
+        &-image {
+          max-height: 450px;
+          // max-width: 350px;
+          width: 100%;
+          height: 100%;
+          margin: 0 auto;
+          overflow: hidden;
+          margin: 0 auto;
+          cursor: pointer;
+
+          // img {
+          //   height: auto;
+          //   width: auto;
+
+          // }
+
+          @media screen and(max-width:469px) {
+
+            max-height: 300px;
+            max-width: 100%;
+
+            img {
+              height: auto;
+              width: 100%;
+              cursor: pointer;
+
+            }
+          }
+
+          @media screen and(max-width:1150px) {
+            max-height: 500px;
+            max-width: 500px;
+
+            img {
+              height: auto;
+              width: auto;
+              cursor: pointer;
+            }
+          }
+
+          img {
+            height: auto;
+            width: 100%;
+            cursor: pointer;
+
+          }
+        }
+      }
+    }
+
+    .create-post {
+      width: 100%;
+      display: inline-flex;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid $mainGrey;
+
+      input[type="text"] {
+        border: 0;
+        outline: 0;
+        left: 0;
+        background: none;
+        width: 100%;
+        color: $mainDark;
+        padding: 0.3rem;
+        font-size: 1rem;
+      }
+
+      .fa {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        color: $mainGrey;
+      }
+    }
+
+    .postIcon {
+      display: flex;
+      flex-direction: row;
+      padding: 0.9rem;
+      justify-content: space-between;
+      color: $mainGrey;
+
+      p {
+        .fa {
+          font-size: 1.3rem;
+          opacity: 0.8;
+        }
+
+        .fa-camera {
+          color: rgb(0, 225, 255);
+        }
+
+        .fa-video-camera {
+          color: purple;
+        }
+
+        .fa-file {
+          color: $mainOrange;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @media screen and(max-width: 1150px) {
+    max-width: 700px;
+    grid-template-columns: 95%;
+    margin-top: 120px;
+    justify-content: center;
+
+    .post {
+      margin: 0 auto;
+    }
+
+    .updates,
+    .profile {
+      display: none;
+    }
+  }
+}
+
+.disabled {
+  color: $mainGrey;
+  border: $mainGrey;
+  opacity: 0.3;
+}
+
+#eduModal,
+#expeModal,
+#updateModal,
+#imgModal,
+#createModal,
+#profileModal,
+#contactModal,
+#editContactModal {
+  display: none;
+}
+
+#editContactModal {
+  z-index: 4;
+}
+
+#imgModal {
+  overflow: hidden;
+
+  .imageModal {
+    overflow: hidden;
+    // transform: translate(-50%, -50%);
+    width: 60%;
+    height: 90%;
+    margin: 2.2rem auto;
+    // background: $mainLight;
+
+    div {
+      max-height: 70vh;
+      width: 100%;
+      margin: 0 auto;
+
+      img {
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        box-shadow: 3px 3px 6px $mainDark;
+      }
+    }
+
+    .fa {
+      position: fixed;
+      top: 20px;
+      right: 50px;
+      z-index: 5;
+      font-size: 1.5rem;
+      color: $mainLight;
+      @include easeOut;
+      cursor: pointer;
+
+      &:hover {
+        font-size: 2rem;
+        color: $mainOrange;
+      }
+    }
+
+    @media screen and(max-width: 768px) {
+      width: 90%;
+
+      .fa {
+        top: 40px;
+        right: 40px;
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.7);
+
+  &-subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 2rem 0rem 2rem;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    div {
+      &:hover {
+        background: lighten($color: $mainBlue, $amount: 40%);
+        @include easeOut;
+      }
+
+      border-radius: 50%;
+
+      .fa {
+        padding: 0.6rem;
+        text-align: center;
+        font-size: 1.5rem;
+        color: $mainBlue;
+        cursor: pointer;
+        @include easeOut;
+
+        &:hover {
+          color: darken($color: $mainBlue, $amount: 15%);
+        }
+      }
+    }
+  }
+
+  &-content {
+    background: $mainLight;
+    width: 55%;
+    margin: 2rem auto;
+    border-radius: 0px;
+
+    @media screen and(max-width: 768px) {
+      width: 90%;
+    }
+  }
+
+  &-title {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $lightGrey;
+    color: $mainGrey;
+
+    div {
+      &:hover {
+        background: lighten($color: $mainBlue, $amount: 40%);
+        @include easeOut;
+      }
+
+      border-radius: 50%;
+
+      .fa {
+        padding: 0.6rem;
+        text-align: center;
+        font-size: 1.5rem;
+        color: $mainBlue;
+        cursor: pointer;
+        @include easeOut;
+
+        &:hover {
+          color: darken($color: $mainBlue, $amount: 15%);
+        }
+      }
+    }
+
+    .fa {
+      cursor: pointer;
+
+      &:hover {
+        color: $mainOrange;
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  &-body {
+    padding: 1rem;
+    overflow: auto;
+
+    .educationModal,
+    .experienceModal,
+    .createModal,
+    .profileModal {
+      margin-top: 1rem;
+    }
+
+    .form-group {
+      textarea {
+        outline: none;
+        height: 100px;
+        width: 100%;
+        padding: 0.4rem;
+        border-radius: 2px;
+        color: #333;
+        font-size: 1.1rem;
+        font: inherit;
+        background: none;
+        border: 1px solid $mainGrey;
+        background: $mainLight;
+      }
+
+      display: flex;
+      flex-direction: column;
+      margin: 0.9rem;
+
+      label {
+        color: $mainGrey;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+
+        span {
+          color: $mainBlue;
+          margin-left: 0.5rem;
+        }
+      }
+
+      input,
+      select {
+        outline: none;
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 1rem;
+        color: #333;
+        background: none;
+        border: 1px solid $mainGrey;
+        border-radius: 2px;
+      }
+
+      small {
+        color: $mainGrey;
+        font-size: 0.7rem;
+        margin-top: 0.2rem;
+        font-style: italic;
+      }
+
+      p,
+      a {
+        font-size: 0.9rem;
+        color: $mainBlue;
+        cursor: pointer;
+        margin-bottom: 0rem;
+        padding-bottom: 0rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+
+        &:hover {
+          background: lighten($color: $mainBlue, $amount: 40%);
+        }
+      }
+    }
+
+    .current {
+      display: flex;
+      color: $mainGrey;
+      margin-left: 0.9rem;
+
+      input[type="checkbox"] {
+        margin-right: 1rem;
+        padding: 0.3rem;
+      }
+    }
+
+    .years {
+      display: flex;
+      height: 70px;
+      flex-direction: row;
+      grid-gap: 2rem;
+      color: $mainGrey;
+      margin: 0.7rem 0.9rem;
+
+      .startYear,
+      .endYear {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        // height: 30px;
+
+        label {
+          span {
+            color: $mainBlue;
+            margin-left: 0.5rem;
+          }
+        }
+
+        .dateInput {
+          display: flex;
+          flex-direction: row;
+          grid-gap: 0.9rem;
+
+          select {
+            flex: 1;
+            outline: none;
+            width: 100%;
+            padding: 0.4rem;
+            font-size: 1rem;
+            color: #333;
+            background: none;
+            font: inherit;
+            border: 1px solid $mainGrey;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+
+    .profileModal {
+      .bg_img {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        background: $mainGrey;
+        margin: 0 auto;
+        text-align: center;
+        box-shadow: 2px 2px 3px $mainGrey, -1px -1px 2px $mainGrey;
+
+        @media screen and(max-width:768px) {
+          height: 170px;
+
+          img {
+            height: 100%;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .fa {
+          padding: 10px;
+          position: absolute;
+          background: $mainLight;
+          top: 10px;
+          right: 20px;
+          color: $mainBlue;
+          text-align: center;
+          justify-content: center;
+          border-radius: 50%;
+          box-shadow: 2px 2px 3px $mainGrey, -1px -1px 2px $mainGrey;
+
+          &:hover {
+            color: $mainLight;
+            background: $mainBlue;
+          }
+        }
+      }
+
+      .profile_img {
+        position: relative;
+        margin: -75px 0 0 20px;
+        z-index: 999;
+        height: 150px;
+        width: 150px;
+        box-shadow: 2px 2px 5px $mainGrey;
+        display: block;
+        background: lighten($color: $mainBlue, $amount: 40%);
+        text-align: center;
+        border-radius: 50%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          z-index: 3;
+        }
+
+        .fa {
+          padding: 10px;
+          background: $mainLight;
+          color: $mainBlue;
+          border-radius: 50%;
+          box-shadow: 2px 2px 5px $mainGrey;
+          font-size: 1rem;
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+
+          &:hover {
+            color: $mainLight;
+            background: $mainBlue;
+          }
+        }
+      }
+
+      .group-input {
+        display: flex;
+        flex-direction: row;
+        grid-gap: 1.5rem;
+        justify-content: space-between;
+        color: $mainGrey;
+        margin: 0.7rem 0.9rem;
+        // padding-right: 1rem;
+
+        .github_username,
+        .location {
+          margin-top: 0.7rem;
+          flex: 1;
+          display: flex;
+          grid-gap: 0.5rem;
+          justify-content: baseline;
+          width: 100%;
+          height: 30px;
+
+          label {
+            flex: 1;
+            line-height: 1;
+            font-size: 0.9rem;
+          }
+
+          input {
+            flex: 4;
+            border: 1px solid $mainGrey;
+            background: none;
+            font: inherit;
+            font-size: 1rem;
+            padding: 0 0.5rem;
+            border-radius: 4px;
+            color: $mainGrey;
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .contactModal {
+      width: 100%;
+
+      .devsworld,
+      .twitter,
+      .github,
+      .email,
+      .dob,
+      .address {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0.3rem;
+
+        .icon {
+          flex: 10%;
+          font-size: 2.2rem;
+          align-items: center;
+          text-align: center;
+        }
+
+        .info {
+          flex: 80%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          h3 {
+            color: $mainDark;
+            font-size: 1rem;
+          }
+
+          p {
+            font-size: 0.9rem;
+            color: $mainBlue;
+            cursor: pointer;
+            margin-bottom: 0rem;
+            padding-bottom: 0rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            &:hover {
+              background: lighten($color: $mainBlue, $amount: 40%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    padding: 0 1rem 1rem 1rem;
+
+    .btn {
+      margin-left: 0.9rem;
+    }
+  }
+}
+
+#contactModal {
+  .modal {
+    &-title {
+      margin: 0rem 1rem;
+    }
+
+    &-content {
+      width: 40%;
+      border-radius: 4px;
+
+      @media screen and(max-width: 768px) {
+        width: 90%;
+      }
+    }
+
+    &-body {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+#editContactModal {
+  .form-group {
+    textarea {
+      height: 90px;
+    }
+  }
+
+  .modal-content {
+    border-radius: 0px;
+    width: 55%;
+
+    @media screen and(max-width: 768px) {
+      width: 90%;
+    }
+  }
+
+  .group-input {
+    display: flex;
+    grid-gap: 1rem;
+
+    div {
+      flex: 1;
+    }
+
+    input {
+      flex: 3;
+    }
+
+    select {
+      flex: 2;
+    }
+  }
+}
+
+.hideSm {
+  display: none;
+  transform: translate(-100%, 0);
+}
+
+#createModal {
+  .modal-content {
+    border-radius: 5px;
+    width: 40%;
+
+    .modal-body {
+      padding-bottom: 0;
+    }
+
+    @media screen and(max-width: 1150px) {
+      max-width: 700px;
+      width: 80%;
+    }
+
+    @media screen and(max-width: 768px) {
+      width: 90%;
+    }
+
+    .createModal {
+      .form-group {
+        textarea {
+          border: none;
+          background: none;
+          outline: none;
+          height: 100px;
+        }
+      }
+
+      .image-group {
+        height: 250px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        display: none;
+
+        .image {
+          opacity: 1;
+          transition: 0.5s ease;
+          backface-visibility: hidden;
+          height: 100%;
+          width: 100%;
+        }
+
+        .middle {
+          transition: 0.5s ease;
+          opacity: 0.7;
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          background: lighten($color: $mainBlue, $amount: 20%);
+          font-size: 2rem;
+          padding: 0.5rem 1rem;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:hover .image {
+          opacity: 0.5;
+        }
+
+        &:hover .middle {
+          background: $mainBlue;
+          color: $mainLight;
+        }
+      }
+    }
+
+    .modal-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .fa {
+        font-size: 1rem;
+        padding: 0.7rem;
+        color: $mainBlue;
+        border-radius: 50%;
+        @include easeOut;
+
+        &:hover {
+          background: lighten($color: $mainBlue, $amount: 40%);
+        }
+      }
+
+      button {
+        padding: 0.3rem 1rem;
+        color: $mainLight;
+        border: none;
+        outline: none;
+        background: $mainBlue;
+        font-size: 1rem;
+        border-radius: 4px;
+
+        &:hover {
+          background: darken($color: $mainBlue, $amount: 5);
+        }
+      }
+    }
+  }
+}
+
+.card {
+  width: 100%;
+  background: $mainLight;
+  padding: 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 0;
+}
+
+.underline {
+  height: 2px;
+  width: 100%;
+  background: $mainLight;
+  margin: 0 auto 1rem;
+}

@@ -1,0 +1,76 @@
+@media(min-width: 1200px) {
+    .sign-in {
+        .left {
+            flex: 4;
+        }
+
+        .right {
+            flex: 6;
+        }
+    }
+}
+
+@media(max-width: 868px) {
+    .sign-in {
+        background: url(../img/showcase.jpg) no-repeat center center/cover;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba($color: #000000, $alpha: 0.7);
+            z-index: 1;
+        }
+
+        .right,
+        .hide-sm {
+            display: none;
+        }
+
+        .left {
+            width: 100%;
+            justify-content: start;
+            margin-top: 8vh;
+            z-index: 2;
+
+            .logo {
+                margin-bottom: 5vh;
+            }
+
+            .form-group {
+                width: 90%;
+                margin: 0.5rem auto;
+            }
+
+            .btn-primary {
+                margin-bottom: 0.2rem;
+                width: 90%;
+
+                &:hover {
+                    width: 85%;
+                }
+            }
+
+            .links {
+                width: 60%;
+                margin: 0.2rem auto;
+            }
+
+            .btn-secondary,
+            .or {
+                width: 60%;
+                margin: 0.5rem auto;
+            }
+
+        }
+    }
+
+}
+
+@media screen and(max-width: 360px) {
+    .profile-page {}
+}

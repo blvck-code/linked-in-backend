@@ -1,0 +1,94 @@
+$mainOrange: #f96816;
+$mainLight: #f4f4f4;
+$mainDark: #181818;
+$mainGrey: #555;
+$lightBg: #c8c8c8;
+$lightGrey: #ccc;
+$darkBg: #181818;
+$mainBlue: #007bff;
+
+// Text
+.text-red {
+  color: rgba(224, 5, 5, 0.854);
+}
+
+.text-black {
+  color: $darkBg;
+}
+
+.orange {
+  color: $mainOrange;
+}
+
+.text-light {
+  color: $mainLight;
+}
+
+.text-dark {
+  color: $mainDark;
+}
+
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+// Bg
+.bg-dark {
+  background-image: linear-gradient(to right, #343a40, #000);
+  border-bottom: 2px solid $mainOrange;
+}
+
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin overlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba($color: #000000, $alpha: 0.7);
+  z-index: 1;
+}
+
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+
+// Margin and Padding
+$spaceamounts: (1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+  // All around margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+
+  // Vertical margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+
+  // All around padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+
+  // Vertical padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+}

@@ -1,0 +1,92 @@
+nav {
+  height: 50px;
+  top: 0;
+  width: 100vw;
+  color: #fff;
+  position: fixed;
+  opacity: 0.9;
+  z-index: 2;
+
+  .wrapper {
+    height: 100%;
+    margin: 0 5rem;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .logo a {
+      color: $mainOrange;
+    }
+
+    ul {
+      display: flex;
+
+      li {
+        padding: 0 1rem;
+        padding-bottom: 0.3rem;
+        cursor: pointer;
+
+        &:hover a,
+        a.active {
+          color: $mainOrange;
+          border-bottom: 2px solid $mainLight;
+          //   font-weight: bold;
+        }
+
+        a {
+          color: $mainLight;
+          text-decoration: none;
+          font-size: 1rem;
+          padding-bottom: 0.65rem;
+          width: 100%;
+
+          //   &.active {
+          //     color: $mainOrange;
+          //     border-bottom: 2px solid $mainLight;
+          //   }
+        }
+      }
+    }
+  }
+
+  @media screen and(max-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      .logo {
+        display: block;
+        margin: 0.7em 0rem;
+        font-size: 1.2rem;
+      }
+
+      ul {
+        font-size: 1rem;
+
+        li {
+          padding: 0rem 0.7rem;
+
+          a {
+            padding-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and(max-width: 560px) {
+    .fa {
+      display: none;
+    }
+  }
+}
