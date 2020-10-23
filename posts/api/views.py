@@ -8,6 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.filters import SearchFilter, OrderingFilter
+from profiles.models import Profile
 
 # Detail Post API
 @api_view(['GET', ])
@@ -46,12 +47,23 @@ class PostListView(ListAPIView):
 @permission_classes([IsAuthenticated,])
 @authentication_classes([TokenAuthentication,])
 def createPostAPI(request):
-    post = Post(account=request.user)
+    author = Post(account=request.user)
+    profile = Profile.objects.get(account=request.user)
 
-    serializer = CreatePostSerializer(post, data=request.data)
+    serializer = CreatePostSerializer(author, data=request.data)
+    data = {}
     if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        post = serializer.save()
+
+        data['date_updated'] = post.id
+        data['image'] = post.image
+        data['profile'] = profile.slug
+        data['dp'] = profile.profile_pic
+        data['author'] = f'{profile.account.first_name} {profile.account.last_name}'
+        data['profession'] = profile.profession
+        data['date_updated'] = post.date_updated
+
+        return Response(data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Delete Post API
